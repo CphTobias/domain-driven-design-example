@@ -21,6 +21,10 @@ function todoReducer(state, action) {
             : todo
         ),
       };
+    case "REMOVE_FINISHED":
+      return {
+        todos: state.todos.filter((todo) => !todo.finished),
+      };
     default:
       return state;
   }

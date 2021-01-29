@@ -1,7 +1,7 @@
 import React from "react";
+import { Button } from "../../components/Button";
 
 const TodoComponent = React.memo(({ dispatch, t }) => {
-  console.log("rendered");
   return (
     <div>
       <p
@@ -10,9 +10,9 @@ const TodoComponent = React.memo(({ dispatch, t }) => {
       >
         {t.todo}
       </p>
-      <button onClick={() => dispatch({ type: "REMOVE_TODO", payload: t.id })}>
+      <Button onClick={() => dispatch({ type: "REMOVE_TODO", payload: t.id })}>
         remove
-      </button>
+      </Button>
     </div>
   );
 });
