@@ -4,6 +4,7 @@ import { TodoComponent } from "./TodoComponent";
 import { todoReducer } from "./TodoReducer";
 
 const initialState = {
+  //todos: [{id, todo, finished}]
   todos: [],
 };
 

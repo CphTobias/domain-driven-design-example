@@ -1,11 +1,11 @@
-import User from "./User";
-
-function userReducer(state, action) {
+function userReducer(userState, action) {
   switch (action.type) {
-    case "idk":
-      return User.getFullName({ user: "hello", withTitle: true });
+    case "LOGIN":
+      return; //Some login
+    case "LOGOUT":
+      return; //Some logout
     default:
-      return state;
+      return userState;
   }
 }
 
