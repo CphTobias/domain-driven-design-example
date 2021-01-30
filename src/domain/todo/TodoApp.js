@@ -3,14 +3,13 @@ import { useForm } from "../../customhooks/useForm";
 import { TodoComponent } from "./TodoComponent";
 import { todoReducer } from "./TodoReducer";
 import { Button } from "../../components/Button";
-import Styles from "../../styles";
 
 const initialState = {
   //todos: [{id, todo, finished}]
   todos: [],
 };
 
-function TodoApp() {
+function TodoApp({ placeholder, buttonStyle, children }) {
   const { values, setValues, handleChange } = useForm({
     test: "",
   });
@@ -18,6 +17,7 @@ function TodoApp() {
 
   return (
     <div>
+      <div>{children}</div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -25,11 +25,16 @@ function TodoApp() {
           setValues({ test: "" });
         }}
       >
-        <input name="test" value={values.test} onChange={handleChange} />
+        <input
+          name="test"
+          value={values.test}
+          placeholder={placeholder}
+          onChange={handleChange}
+        />
       </form>
       <Button
         onClick={() => dispatch({ type: "REMOVE_FINISHED" })}
-        style={Styles.awesomeButton}
+        style={buttonStyle}
       >
         Remove all complete
       </Button>
