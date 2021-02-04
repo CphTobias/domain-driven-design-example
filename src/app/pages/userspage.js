@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import User from "../../domain/user/User";
 import { UserContext } from "../../domain/user/UserContext";
 
 function UsersPage() {
@@ -8,7 +9,10 @@ function UsersPage() {
     <div>
       <div>
         {user ? (
-          <img src={user.picture.large} alt="userpicture" />
+          <div>
+            {User.getPicture(user)}
+            <div>{User.getFullName(user, true)}</div>
+          </div>
         ) : (
           <div>No users</div>
         )}

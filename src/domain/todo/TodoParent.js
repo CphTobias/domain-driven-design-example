@@ -1,9 +1,9 @@
 import React from "react";
 
-function Todos({ children, ...props }) {
+function TodoParent({ children, placeholder, buttonStyle }) {
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, props);
+      return React.cloneElement(child, { placeholder, buttonStyle });
     }
     return child;
   });
@@ -11,4 +11,4 @@ function Todos({ children, ...props }) {
   return <div>{childrenWithProps}</div>;
 }
 
-export { Todos };
+export { TodoParent };

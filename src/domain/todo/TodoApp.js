@@ -33,8 +33,8 @@ function TodoApp({ placeholder, buttonStyle, children }) {
         />
       </form>
       <Button
+        css={buttonStyle}
         onClick={() => dispatch({ type: "REMOVE_FINISHED" })}
-        style={buttonStyle}
       >
         Remove all complete
       </Button>

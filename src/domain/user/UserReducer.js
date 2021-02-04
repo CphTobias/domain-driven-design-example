@@ -1,16 +1,18 @@
 function userReducer(userState, { payload, type }) {
+  const { name, picture } = payload;
+
   switch (type) {
     case "LOGIN":
       return {
         name: {
-          title: payload.name.title,
-          first: payload.name.first,
-          last: payload.name.last,
+          title: name.title,
+          first: name.first,
+          last: name.last,
         },
         picture: {
-          large: payload.picture.large,
-          medium: payload.picture.medium,
-          thumbnail: payload.picture.thumbnail,
+          large: picture.large,
+          medium: picture.medium,
+          thumbnail: picture.thumbnail,
         },
       };
     case "LOGOUT":

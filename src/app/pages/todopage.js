@@ -1,23 +1,23 @@
 import React from "react";
 import { TodoApp } from "../../domain/todo/TodoApp";
-import { Todos } from "../../domain/todo/Todos";
-import Styles from "../../styles";
+import { TodoParent } from "../../domain/todo/TodoParent";
 
 function TodoPage() {
   return (
     <div>
       <h1>Todopage</h1>
-      <Todos
+      <TodoParent
         placeholder={"Insert todo (from parent)"}
-        buttonStyle={Styles.awesomeButton}
+        buttonStyle={"secondary"}
       >
         <TodoApp>
           <h2>First one</h2>
+          <h4>Is this one</h4>
         </TodoApp>
         <TodoApp placeholder="overridden by parent">
           <h2>Second one</h2>
         </TodoApp>
-      </Todos>
+      </TodoParent>
     </div>
   );
 }
