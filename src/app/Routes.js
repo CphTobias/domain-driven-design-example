@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import { UserProvier } from "../domain/user/UserProvider";
 
 const SomePage = lazy(() =>
   import("./pages/somepage").then(({ SomePage }) => ({ default: SomePage }))
@@ -36,8 +37,12 @@ function Routes() {
             <Route path="/somepage" exact>
               <SomePage />
             </Route>
-            <Route path="/users" component={UsersPage} />
-            <Route path="/" render={() => <div>404</div>} />
+            <Route path="/users">
+              <UsersPage />
+            </Route>
+            <Route path="/">
+              <div>404</div>
+            </Route>
           </Switch>
         </Suspense>
       </BrowserRouter>
